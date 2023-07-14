@@ -636,6 +636,7 @@ BUILTIN_KERNEL_SRCS = [
     "hashtable_lookup.cc",
     "hashtable_size.cc",
     "if.cc",
+    "irfft2d.cc",
     "l2norm.cc",
     "local_response_norm.cc",
     "logical.cc",
@@ -665,6 +666,7 @@ BUILTIN_KERNEL_SRCS = [
     "resize_nearest_neighbor.cc",
     "reverse.cc",
     "reverse_sequence.cc",
+    "rfft2d.cc",
     "right_shift.cc",
     "round.cc",
     "scatter_nd.cc",
@@ -696,7 +698,6 @@ BUILTIN_KERNEL_SRCS = [
     "where.cc",
     "while.cc",
     "zeros_like.cc",
-    "rfft2d.cc",
 ]
 
 VARIABLE_KERNEL_SRCS = [
@@ -857,7 +858,6 @@ cc_library(
     name = "custom_ops",
     srcs = [
         "atan2_custom.cc",
-        "irfft2d.cc",
         "multinomial.cc",
         "pooling3d.cc",
         "random_standard_normal_custom.cc",
@@ -2688,7 +2688,6 @@ cc_test(
     size = "small",
     srcs = ["irfft2d_test.cc"],
     deps = [
-        ":custom_ops",
         ":test_main",
         ":test_util",
         "//tensorflow/lite:framework_stable",
